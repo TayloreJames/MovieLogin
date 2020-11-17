@@ -12,7 +12,7 @@ using Lab21_24.Data;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Lab21_24.Data.Context;
+
 
 namespace Lab21_24
 {
@@ -34,8 +34,6 @@ namespace Lab21_24
             services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
                 .AddEntityFrameworkStores<ApplicationDbContext>();
 
-            services.AddDbContext<MovieDbContext>(options =>
-                options.UseSqlServer(Configuration.GetConnectionString("MovieDbConnection")));
 
             services.AddControllersWithViews();
             services.AddRazorPages();
